@@ -32,9 +32,11 @@ class _WYQTabviewListAutoLoadmoreState extends State<WYQTabviewListAutoLoadmore>
   }
 
   bool _scrollInfoNotification(ScrollNotification scrollInfo) {
-    // 下滑到最底部
-    if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
-      _loadMore();
+    if (scrollInfo is ScrollEndNotification) {
+      // 下滑到最底部
+      if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
+        _loadMore();
+      }
     }
     return true;
   }
