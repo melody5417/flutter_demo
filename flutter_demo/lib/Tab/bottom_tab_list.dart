@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list.dart';
+import 'package:melody_flutter_demo/Tab/tabview_list_autoloadmore.dart';
+import 'package:melody_flutter_demo/Tab/tabview_list_loadmore.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list_refresh.dart';
 
 class WYQBottomTabList extends StatefulWidget {
@@ -10,13 +12,20 @@ class WYQBottomTabList extends StatefulWidget {
 class _WYQBottomTabListState extends State<WYQBottomTabList> with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
     Tab(text: '简单列表'),
-    Tab(text: '带刷新列表'),
+    Tab(text: '刷新列表'),
+    Tab(text: '加载更多'),
+    Tab(text: '自动加载'),
   ];
 
   TabController _tabController;
 
   _tabViews() {
-    return [ WYQTabviewList(), WYQTabviewListRefresh()];
+    return [
+      WYQTabviewList(),
+      WYQTabviewListRefresh(),
+      WYQTabviewListLoadmore(),
+      WYQTabviewListAutoLoadmore()
+    ];
   }
 
   @override

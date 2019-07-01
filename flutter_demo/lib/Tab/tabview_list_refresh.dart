@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class WYQTabviewListRefresh extends StatefulWidget {
@@ -5,7 +7,7 @@ class WYQTabviewListRefresh extends StatefulWidget {
   _WYQTabviewListRefreshState createState() => _WYQTabviewListRefreshState();
 }
 
-class _WYQTabviewListRefreshState extends State<WYQTabviewListRefresh> {
+class _WYQTabviewListRefreshState extends State<WYQTabviewListRefresh> with AutomaticKeepAliveClientMixin {
   List<int> list = [0, 1, 2, 3];
 
   @override
@@ -34,8 +36,11 @@ class _WYQTabviewListRefreshState extends State<WYQTabviewListRefresh> {
   Future<void> _doRefresh() async {
     await Future<Null>.delayed(Duration(seconds: 3), () {
       setState(() {
-        list.addAll(List.generate(3, (int index) => index * index));
+        list = List.generate(Random().nextInt(10), (int index) => 5 + index * index);
       });
     });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
