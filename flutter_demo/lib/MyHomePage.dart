@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:melody_flutter_demo/Tab/bottom_tab_list.dart';
 import 'package:melody_flutter_demo/Tab/top_tab.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -34,14 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(builder: (context) => new WYQTopBar()),
+                  new MaterialPageRoute(builder: (context) => new WYQTopTab()),
                 );
               },
-              child: Text(
-                "顶部tab",
-              ),
-              color: Colors.blue,
-            ),
+              child: Text("顶部tab"), color: Colors.blue),
+            FlatButton(
+              onPressed: (){
+                Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => new WYQBottomTabList())
+                );
+              },
+              child: Text("底部tab"), color: Colors.blue)
 
           ],
         ),

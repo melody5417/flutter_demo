@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class WYQTopBar extends StatefulWidget {
+class WYQTopTab extends StatefulWidget {
   @override
-  _WYQTopBarState createState() => _WYQTopBarState();
+  _WYQTopTabState createState() => _WYQTopTabState();
 }
 
-class _WYQTopBarState extends State<WYQTopBar> with SingleTickerProviderStateMixin {
+class _WYQTopTabState extends State<WYQTopTab> with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
     Tab(text: 'LEFT'),
     Tab(text: 'RIGHT'),
