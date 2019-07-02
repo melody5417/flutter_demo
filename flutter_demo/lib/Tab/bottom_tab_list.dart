@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:melody_flutter_demo/Tab/listview_loadmore_animation.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list_autoloadmore.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list_loadmore.dart';
@@ -15,6 +16,7 @@ class _WYQBottomTabListState extends State<WYQBottomTabList> with SingleTickerPr
     Tab(text: '刷新列表'),
     Tab(text: '加载更多'),
     Tab(text: '自动加载'),
+    Tab(text: '加载动画',)
   ];
 
   TabController _tabController;
@@ -24,7 +26,8 @@ class _WYQBottomTabListState extends State<WYQBottomTabList> with SingleTickerPr
       WYQTabviewList(),
       WYQTabviewListRefresh(),
       WYQTabviewListLoadmore(),
-      WYQTabviewListAutoLoadmore()
+      WYQTabviewListAutoLoadmore(),
+      WYQListViewLoadmoreAnimation(),
     ];
   }
 
