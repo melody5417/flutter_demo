@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:melody_flutter_demo/Route/route_param_page.dart';
+import 'package:melody_flutter_demo/Route/route_result_page.dart';
+import 'package:melody_flutter_demo/Route/route_simple_page.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_limit_reached.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_movement.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_status.dart';
@@ -87,6 +90,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text("ScrollController详解"), color: Colors.blue),
+            FlatButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
+                      myTabs: <Tab>[
+                        Tab(text: '简单路由'),
+                        Tab(text: '参数跳转'),
+                        Tab(text: 'result返回')
+                      ],
+                      myTabViews: <Widget>[
+                        RouteSimpleFirstPage(),
+                        RouteParamListPage(),
+                        RouteResultListPage(),
+                      ],
+                    )),
+                  );
+                },
+                child: Text("Route详解"), color: Colors.blue),
           ],
         ),
       ),
