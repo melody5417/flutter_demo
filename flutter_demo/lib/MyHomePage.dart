@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_limit_reached.dart';
+import 'package:melody_flutter_demo/ScrollController/scroll_movement.dart';
+import 'package:melody_flutter_demo/ScrollController/scroll_status.dart';
 import 'package:melody_flutter_demo/Tab/bottom_tab_list.dart';
 import 'package:melody_flutter_demo/Tab/listview_loadmore_animation.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list.dart';
@@ -73,9 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
                       myTabs: <Tab>[
                         Tab(text: '顶部底部检测'),
+                        Tab(text: '移动'),
+                        Tab(text: '状态检测')
                       ],
                       myTabViews: <Widget>[
                         ScrollLimitReachedPage(),
+                        ScrollMovermentPage(),
+                        ScrollStatusPage()
                       ],
                     )),
                   );
