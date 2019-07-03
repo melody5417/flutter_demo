@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:melody_flutter_demo/ScrollController/scroll_limit_reached.dart';
 import 'package:melody_flutter_demo/Tab/bottom_tab_list.dart';
 import 'package:melody_flutter_demo/Tab/listview_loadmore_animation.dart';
 import 'package:melody_flutter_demo/Tab/tabview_list.dart';
@@ -26,23 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  final List<Tab> listViews = <Tab>[
-    Tab(text: '简单列表'),
-    Tab(text: '刷新列表'),
-    Tab(text: '加载更多'),
-    Tab(text: '自动加载'),
-    Tab(text: '加载动画',)
-  ];
-
-  final List<Widget> tabViews = <Widget>[
-    WYQTabviewList(),
-    WYQTabviewListRefresh(),
-    WYQTabviewListLoadmore(),
-    WYQTabviewListAutoLoadmore(),
-    WYQListViewLoadmoreAnimation(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,12 +49,38 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: (){
                 Navigator.push(context,
                   new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
-                    myTabs: listViews,
-                    myTabViews: tabViews,
+                    myTabs: <Tab>[
+                      Tab(text: '简单列表'),
+                      Tab(text: '刷新列表'),
+                      Tab(text: '加载更多'),
+                      Tab(text: '自动加载'),
+                      Tab(text: '加载动画')
+                    ],
+                    myTabViews: <Widget>[
+                      WYQTabviewList(),
+                      WYQTabviewListRefresh(),
+                      WYQTabviewListLoadmore(),
+                      WYQTabviewListAutoLoadmore(),
+                      WYQListViewLoadmoreAnimation(),
+                    ],
                   )),
                 );
               },
-              child: Text("底部tab"), color: Colors.blue),
+              child: Text("底部tab及list用法"), color: Colors.blue),
+            FlatButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
+                      myTabs: <Tab>[
+                        Tab(text: '顶部底部检测'),
+                      ],
+                      myTabViews: <Widget>[
+                        ScrollLimitReachedPage(),
+                      ],
+                    )),
+                  );
+                },
+                child: Text("ScrollController详解"), color: Colors.blue),
           ],
         ),
       ),
