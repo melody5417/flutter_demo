@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       // the routes table cannot include an entry for "/"
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: {
+        // 命名导航器路由 （Using named navigator routes）
         '/': (BuildContext context) => new MyHomePage(title: 'Home Page'),
         '/modalchild': (BuildContext context) => new ModalChildPage(),
       },
