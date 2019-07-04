@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:melody_flutter_demo/MyHomePage.dart';
+import 'package:melody_flutter_demo/Route/nested_navigator_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+
+      // If the home property is specified,
+      // the routes table cannot include an entry for "/"
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/': (BuildContext context) => new MyHomePage(title: 'Home Page'),
+        '/modalchild': (BuildContext context) => new ModalChildPage(),
+      },
     );
   }
 }

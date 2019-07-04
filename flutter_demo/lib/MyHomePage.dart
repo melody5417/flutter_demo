@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:melody_flutter_demo/Route/nested_navigator_page.dart';
 import 'package:melody_flutter_demo/Route/route_param_page.dart';
 import 'package:melody_flutter_demo/Route/route_result_page.dart';
 import 'package:melody_flutter_demo/Route/route_simple_page.dart';
@@ -97,12 +98,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       myTabs: <Tab>[
                         Tab(text: '简单路由'),
                         Tab(text: '参数跳转'),
-                        Tab(text: 'result返回')
+                        Tab(text: 'result返回'),
+                        Tab(text: '嵌套路由')
                       ],
                       myTabViews: <Widget>[
                         RouteSimpleFirstPage(),
                         RouteParamListPage(),
                         RouteResultListPage(),
+                        NestedNavigator(),
                       ],
                     )),
                   );
