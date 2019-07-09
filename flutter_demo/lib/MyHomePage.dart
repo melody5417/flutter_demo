@@ -9,11 +9,14 @@ import 'package:melody_flutter_demo/ScrollController/scroll_movement.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_status.dart';
 import 'package:melody_flutter_demo/Tab/bottom_tab_list.dart';
 import 'package:melody_flutter_demo/Tab/top_tab.dart';
+import 'package:melody_flutter_demo/WebAndJson/json_page.dart';
 import 'package:melody_flutter_demo/list/list_autoloadmore.dart';
 import 'package:melody_flutter_demo/list/list_loadmore.dart';
 import 'package:melody_flutter_demo/list/list_loadmore_animation.dart';
 import 'package:melody_flutter_demo/list/list_refresh.dart';
 import 'package:melody_flutter_demo/list/list_simple.dart';
+
+import 'WebAndJson/dio_request_page.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -100,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Tab(text: '简单路由'),
                         Tab(text: '参数跳转'),
                         Tab(text: 'result返回'),
+
                         Tab(text: '嵌套路由'),
                         Tab(text: '自定义',),
                       ],
@@ -114,6 +118,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text("Route详解"), color: Colors.blue),
+            FlatButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
+                      myTabs: <Tab>[
+                        Tab(text: '网络请求'),
+                        Tab(text: 'json'),
+                      ],
+                      myTabViews: <Widget>[
+                        DioRequestPage(),
+                        JsonPage(),
+                      ],
+                    )),
+                  );
+                },
+                child: Text("网络请求及json序列化"), color: Colors.blue),
           ],
         ),
       ),
