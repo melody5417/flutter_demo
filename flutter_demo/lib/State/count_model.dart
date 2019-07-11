@@ -13,5 +13,3 @@ class CountModel extends Model {
   static CountModel of(BuildContext context) =>
       ScopedModel.of<CountModel>(context, rebuildOnChange: true);
 }
-
-CountModel COUNT_MOUDEL=CountModel();

@@ -41,6 +41,8 @@ class ScopedPageForwardButton extends StatelessWidget {
     return RaisedButton(
       child: Text('forward'),
       onPressed: () {
+        // Note
+        CountModel.of(context).increment();
         Navigator.push(
             context,
             new MaterialPageRoute(builder: (context) => ScopedPageChild())

@@ -10,6 +10,8 @@ class ScopedPageChild extends StatefulWidget {
 class _ScopedPageChildState extends State<ScopedPageChild> {
   @override
   Widget build(BuildContext context) {
+    // Note
+    var count = CountModel.of(context).count;
     return ScopedModelDescendant<CountModel>(
       builder: (context, child, model) {
         return Scaffold(
@@ -22,6 +24,7 @@ class _ScopedPageChildState extends State<ScopedPageChild> {
               children: <Widget>[
                 new Text('You have pushed the button this many times: '),
                 new Text('${model.count}'),
+                new Text('$count')
               ],
             ),
           ),
