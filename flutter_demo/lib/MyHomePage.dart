@@ -7,6 +7,7 @@ import 'package:melody_flutter_demo/Route/route_simple_page.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_limit_reached.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_movement.dart';
 import 'package:melody_flutter_demo/ScrollController/scroll_status.dart';
+import 'package:melody_flutter_demo/State/scoped_page_main.dart';
 import 'package:melody_flutter_demo/Tab/bottom_tab_list.dart';
 import 'package:melody_flutter_demo/Tab/top_tab.dart';
 import 'package:melody_flutter_demo/WebAndJson/json_page.dart';
@@ -134,6 +135,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text("网络请求及json序列化"), color: Colors.blue),
+            FlatButton(
+                onPressed: (){
+                  Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) => new WYQBottomTabList(
+                      myTabs: <Tab>[
+                        Tab(text: 'Scoped model'),
+                      ],
+                      myTabViews: <Widget>[
+                        ScopedPageMain(),
+                      ],
+                    )),
+                  );
+                },
+                child: Text("状态管理"), color: Colors.blue),
           ],
         ),
       ),

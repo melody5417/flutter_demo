@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:melody_flutter_demo/MyHomePage.dart';
 import 'package:melody_flutter_demo/Route/nested_navigator_page.dart';
+import 'package:melody_flutter_demo/State/count_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final model = CountModel();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScopedModel<CountModel>(
+      model: model,
+      child: MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -31,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => new MyHomePage(title: 'Home Page'),
         '/modalchild': (BuildContext context) => new ModalChildPage(),
       },
+    ),
     );
   }
 }
